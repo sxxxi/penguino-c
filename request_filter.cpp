@@ -4,6 +4,16 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include <SD.h>
+
+
+typedef struct ParserState {
+  bool openTagFound = false;
+  
+  char *saveToFile = NULL;
+} ParserState;
+
+
 request_info *parseRequestInfo(char *raw) {
   request_info *info = (request_info *) malloc(sizeof(request_info));
   info->mapping = getAttr(raw, "<mapping>");
@@ -44,6 +54,7 @@ char *toCStr(char *src, int size) {
   buf[size] = '\0';
   return buf;
 }
+
 
 
 char *getAttr(char *src, char *subj)

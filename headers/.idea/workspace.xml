@@ -9,7 +9,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c44e0132-b3a2-445c-8066-7844ba8908db" name="Changes" comment="" />
+    <list default="true" id="c44e0132-b3a2-445c-8066-7844ba8908db" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Penguin.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../Penguin.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/action_registry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../request_filter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../request_filter.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +22,9 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -39,6 +47,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -55,7 +64,8 @@
       <option name="presentableId" value="Default" />
       <updated>1696609438727</updated>
       <workItem from="1696609440380" duration="7852000" />
-      <workItem from="1696683972176" duration="610000" />
+      <workItem from="1696683972176" duration="1202000" />
+      <workItem from="1697895750259" duration="969000" />
     </task>
     <servers />
   </component>

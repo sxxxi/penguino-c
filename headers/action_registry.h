@@ -24,4 +24,6 @@ registry_entry* new_registry_entry(char *key, action_lambda action);
 void extend_registry(action_registry* registry, int size);
 int avail_index(action_registry* registry);
 
+
+
 #endif

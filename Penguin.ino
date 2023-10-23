@@ -3,11 +3,13 @@
 #include <TMRpcm.h>           
 #include <SPI.h>
 #include "headers/action_registry.h"
+#include "LCD_Driver.h"
+#include "GUI_Paint.h"
+#include "image.h"
 
 #define SD_ChipSelectPin 4
-#define rxPin 8
-#define txPin 9
-#define led 6
+#define rxPin 5
+#define txPin 6
 #define baud 9600
 
 SoftwareSerial mySerial(rxPin, txPin); // RX, TX
@@ -19,6 +21,9 @@ void setup() {
   setupBluetooth();
   // setupSpeaker();
   setupHandlers();
+  Config_Init();
+  LCD_Init();
+  LCD_SetBacklight(100);
 }
 
 void loop() { 
@@ -46,16 +51,19 @@ int feed(char *foodName) {
 
 int displayText(char * text) {
   Serial.print("Display: ");
-  Serial.println(text);
-}
+  String s = String(text);
+  int lines = s.length() / 9;
+  int blankRows = lines - 9;
+  int startRow = blankRows / 2;
+  Paint_NewImage(LCD_WIDTH, LCD_HEIGHT, 90, WHITE);
+  Paint_Clear(WHITE);
+  Paint_DrawString_EN(30, startRow * 24, text, &Font24, WHITE, BLACK);}
 
 void setupHandlers() {
   registry = new_action_registry(2);
   add_entry(registry, new_registry_entry("feed", feed));
   add_entry(registry, new_registry_entry("displayText", displayText));
 }
-
-
 
 //===<REQUEST PROCESSOR>===========================
 void serve() {
@@ -74,17 +82,6 @@ void serve() {
   }
 }
 
-
-//=================================================
-void analogLedControlSetup() {
-  pinMode(led, OUTPUT);
-}
-
-void analogLedControl(int brightness) {
-  if (brightness > 255 || brightness < 0) return;
-  analogWrite(led, brightness);
-}
-
 //===<Audio stuff>==============================================
 void setupSpeaker() {
   tmrpcm.speakerPin = 9;
@@ -99,6 +96,3 @@ void setupSpeaker() {
   }
   tmrpcm.play("test.wav");
 }
-
-
-

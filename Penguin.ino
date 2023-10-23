@@ -5,9 +5,8 @@
 #include "headers/action_registry.h"
 
 #define SD_ChipSelectPin 4
-#define rxPin 8
-#define txPin 9
-#define led 6
+#define rxPin 5
+#define txPin 6
 #define baud 9600
 
 SoftwareSerial mySerial(rxPin, txPin); // RX, TX
@@ -55,8 +54,6 @@ void setupHandlers() {
   add_entry(registry, new_registry_entry("displayText", displayText));
 }
 
-
-
 //===<REQUEST PROCESSOR>===========================
 void serve() {
   if (mySerial.available() > 0) {
@@ -72,17 +69,6 @@ void serve() {
       Serial.println("Mapping not found.");
     }
   }
-}
-
-
-//=================================================
-void analogLedControlSetup() {
-  pinMode(led, OUTPUT);
-}
-
-void analogLedControl(int brightness) {
-  if (brightness > 255 || brightness < 0) return;
-  analogWrite(led, brightness);
 }
 
 //===<Audio stuff>==============================================
